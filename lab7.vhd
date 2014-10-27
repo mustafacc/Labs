@@ -40,13 +40,7 @@ begin
     
     --Branch Unit CL
     --to determine if a branch instruction should update PC to target branch
-    case? status & "00" & cond is
-      when "001" & "00" & "000"
-      when "001" & "00" & "001"
-      when "001" & "00" & "010"
-      when "001" & "00" & "011"
-      when "001" & "00" & "100"
-    end case?;
+
     --/Branch Unit CL
     
     loadpc <= '1' when (taken OR incp );  --output to loadpc mux select signal
@@ -57,6 +51,7 @@ begin
     BNE	<label> 0	0	1 0	0 0	1	0 imm8 if Z=0 then PC=PC+sx (<imm8>)
     BLT	<label> 0	0	1 0	0 0	1	1 imm8 if N/=V then PC=PC+sx (<imm8>)
     BLE	<label> 0	0	1 0	0 1	0	0 imm8 if N/=V or Z=1 then PC=PC+sx (<imm8>)
+    */
    
     
   end process;
